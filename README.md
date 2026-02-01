@@ -1,4 +1,4 @@
-# 🏢 Office Management System
+#  Office Management System
 
 A full-stack Office Management System built using **Node.js**, **Express.js**, **MongoDB (Atlas)**, **EJS**, and **Tailwind CSS**.
 
@@ -6,23 +6,23 @@ This system allows managing employees and departments with relationships, search
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 👥 Employee Management
+### Employee Management
 - Add, edit, delete employees
 - Assign department to employee
 - Assign supervisor (self-referencing relationship)
 
-### 🏢 Department Management
+###  Department Management
 - Create and list departments
 
-### 🔍 Advanced Functionality
+###  Advanced Functionality
 - Search employees by name or email
 - Filter by department
 - Filter by job title
 - Server-side pagination
 
-### 🌍 Location API Integration
+###  Location API Integration
 Dynamic dropdowns:
 - Country
 - State
@@ -32,7 +32,7 @@ Uses **CountriesNow API**
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |------|------------|
