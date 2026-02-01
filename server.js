@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
-const expressLayouts = require("express-ejs-layouts");   // ⭐ layout engine
+const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
 
@@ -17,8 +17,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // 🎨 View Engine
 app.set("view engine", "ejs");
-
-// ⭐ Enable layout.ejs for all pages
 app.use(expressLayouts);
 app.set("layout", "layout");
 
@@ -38,5 +36,6 @@ app.use("/departments", require("./routes/departmentRoutes"));
 app.get("/", (req, res) => res.redirect("/employees"));
 
 
-// Start server
-app.listen(3000, () => console.log("Server running on port 3000"));
+// ⭐ IMPORTANT FOR RENDER DEPLOYMENT
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
