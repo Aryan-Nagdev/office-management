@@ -1,0 +1,40 @@
+<h2 class="text-2xl font-bold mb-6">Add Employee</h2>
+
+<form action="/employees" method="POST" class="bg-white p-6 rounded shadow space-y-4">
+
+  <input name="name" placeholder="Full Name" required class="border p-2 w-full rounded">
+  <input name="email" placeholder="Email Address" class="border p-2 w-full rounded">
+  <input name="jobTitle" placeholder="Job Title" class="border p-2 w-full rounded">
+
+  <select name="department" class="border p-2 w-full rounded">
+    <% departments.forEach(d => { %>
+      <option value="<%= d._id %>"><%= d.name %></option>
+    <% }) %>
+  </select>
+
+  <select name="supervisor" class="border p-2 w-full rounded">
+    <option value="">No Supervisor</option>
+    <% supervisors.forEach(s => { %>
+      <option value="<%= s._id %>"><%= s.name %></option>
+    <% }) %>
+  </select>
+
+  <!-- Location -->
+  <div class="grid grid-cols-3 gap-3">
+    <select id="country" name="country" class="border p-2 rounded">
+      <option>Select Country</option>
+    </select>
+
+    <select id="state" name="state" class="border p-2 rounded">
+      <option>Select State</option>
+    </select>
+
+    <select id="city" name="city" class="border p-2 rounded">
+      <option>Select City</option>
+    </select>
+  </div>
+
+  <button class="bg-green-600 text-white px-4 py-2 rounded">Create Employee</button>
+</form>
+
+<script src="/location.js"></script>

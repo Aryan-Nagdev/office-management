@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Office Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-900 text-white p-6">
+    <h2 class="text-xl font-bold mb-6">Office Admin</h2>
+    <a href="/employees" class="block p-2 rounded hover:bg-gray-700">Employees</a>
+    <a href="/departments" class="block p-2 rounded hover:bg-gray-700">Departments</a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10">
+    <div class="max-w-4xl mx-auto">
+      <%- body %>
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>

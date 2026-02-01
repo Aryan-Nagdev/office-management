@@ -1,0 +1,24 @@
+office-management
+│
+├── models
+│   ├── Department.js
+│   └── Employee.js
+│
+├── routes
+│   ├── departmentRoutes.js
+│   └── employeeRoutes.js
+│
+├── views
+│   ├── layout.ejs
+│   ├── employees
+│   │   ├── index.ejs
+│   │   ├── new.ejs
+│   │   └── edit.ejs
+│   └── departments
+│       └── index.ejs
+│
+├── public
+│   └── location.js
+│
+├── server.js
+└── .env

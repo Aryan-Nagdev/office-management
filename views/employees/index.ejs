@@ -1,0 +1,65 @@
+<div class="flex justify-between items-center mb-6">
+  <h1 class="text-2xl font-bold">Employees</h1>
+  <a href="/employees/new" class="bg-blue-600 text-white px-4 py-2 rounded shadow">+ New</a>
+</div>
+
+<!-- 🔍 Filters -->
+<div class="bg-white p-4 rounded shadow mb-6">
+  <form class="grid grid-cols-4 gap-3">
+    <input name="search" value="<%= search || '' %>" placeholder="Search name/email"
+           class="border p-2 rounded">
+
+    <select name="department" class="border p-2 rounded">
+      <option value="">All Departments</option>
+      <% departments.forEach(d => { %>
+        <option value="<%= d._id %>" <%= department == d._id ? 'selected' : '' %>><%= d.name %></option>
+      <% }) %>
+    </select>
+
+    <input name="jobTitle" value="<%= jobTitle || '' %>" placeholder="Job Title"
+           class="border p-2 rounded">
+
+    <button class="bg-green-600 text-white rounded">Apply</button>
+  </form>
+</div>
+
+<!-- 📋 Table -->
+<div class="bg-white rounded shadow overflow-hidden">
+  <table class="w-full text-left">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="p-3">Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Supervisor</th>
+        <th class="text-right pr-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% employees.forEach(e => { %>
+      <tr class="border-t hover:bg-gray-50">
+        <td class="p-3 font-semibold"><%= e.name %></td>
+        <td><%= e.email %></td>
+        <td><%= e.department?.name %></td>
+        <td><%= e.supervisor?.name || "None" %></td>
+        <td class="text-right pr-4">
+          <a href="/employees/<%= e._id %>/edit" class="text-blue-600 mr-2">Edit</a>
+          <form action="/employees/<%= e._id %>?_method=DELETE" method="POST" class="inline">
+            <button class="text-red-600">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<!-- 📄 Pagination -->
+<div class="mt-6 flex gap-2">
+  <% for (let i = 1; i <= pages; i++) { %>
+    <a href="/employees?page=<%= i %>&search=<%= search || '' %>&department=<%= department || '' %>&jobTitle=<%= jobTitle || '' %>"
+       class="px-3 py-1 border rounded <%= currentPage == i ? 'bg-blue-600 text-white' : '' %>">
+      <%= i %>
+    </a>
+  <% } %>
+</div>

@@ -1,0 +1,12 @@
+<h1 class="text-2xl font-bold mb-6">Departments</h1>
+
+<form action="/departments" method="POST" class="flex gap-2 mb-4">
+  <input name="name" placeholder="Department Name" class="border p-2 rounded flex-1">
+  <button class="bg-blue-600 text-white px-4 rounded">Add</button>
+</form>
+
+<div class="bg-white shadow rounded p-3">
+  <% departments.forEach(d => { %>
+    <div class="border-b py-2"><%= d.name %></div>
+  <% }) %>
+</div>
